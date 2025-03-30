@@ -51,8 +51,8 @@ const Navbar = () => {
           </nav>
           
           <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-purple-600 to-zeyfira-500 text-white">
-              Get a Quote
+            <Button asChild className="bg-gradient-to-r from-purple-600 to-zeyfira-500 text-white">
+              <Link to="/contact">Get a Quote</Link>
             </Button>
           </div>
           
@@ -83,8 +83,8 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="pt-2">
-              <Button className="w-full bg-gradient-to-r from-purple-600 to-zeyfira-500 text-white">
-                Get a Quote
+              <Button asChild className="w-full bg-gradient-to-r from-purple-600 to-zeyfira-500 text-white">
+                <Link to="/contact">Get a Quote</Link>
               </Button>
             </div>
           </div>
