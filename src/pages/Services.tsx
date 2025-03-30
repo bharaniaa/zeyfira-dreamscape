@@ -203,9 +203,9 @@ const Services = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-pink-200 rounded-3xl transform rotate-3"></div>
               <img 
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1000"
-                alt="AI and Machine Learning" 
-                className="relative z-10 rounded-2xl shadow-lg"
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad979?auto=format&fit=crop&q=80&w=1000"
+                alt="AI and Machine Learning Solutions" 
+                className="relative z-10 rounded-2xl shadow-lg object-cover h-full"
               />
             </div>
           </div>
