@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -82,7 +81,6 @@ const Services = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-purple-700 to-zeyfira-700 py-20 md:py-32 text-white">
         <div className="absolute inset-0 z-0 opacity-30">
           <div className="absolute h-96 w-96 rounded-full bg-purple-500 blur-3xl -top-12 -right-12"></div>
@@ -100,7 +98,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Web Development Section */}
       <section id="web-development" className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -139,7 +136,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Software Development Section */}
       <section id="software-development" className="section-padding bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -178,7 +174,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* AI & ML Section */}
       <section id="ai-ml" className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -208,7 +203,7 @@ const Services = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-pink-200 rounded-3xl transform rotate-3"></div>
               <img 
-                src="https://images.unsplash.com/photo-1677442136019-21780ecad979?auto=format&fit=crop&q=80&w=1000"
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1000"
                 alt="AI and Machine Learning" 
                 className="relative z-10 rounded-2xl shadow-lg"
               />
@@ -217,7 +212,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Process Section */}
       <section className="section-padding bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -275,7 +269,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-purple-700 to-zeyfira-700 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
