@@ -43,12 +43,6 @@ const Footer = () => {
               <li>
                 <Link to="/services" className="text-gray-400 hover:text-white transition-colors">AI & Machine Learning</Link>
               </li>
-              <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">UI/UX Design</Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">Digital Transformation</Link>
-              </li>
             </ul>
           </div>
           
