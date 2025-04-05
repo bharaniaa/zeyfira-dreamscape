@@ -7,6 +7,23 @@ import {
   Mail, Phone, MapPin, MessageSquare, Clock, CheckCircle 
 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import { motion } from 'framer-motion';
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 const Contact = () => {
   const { toast } = useToast();
@@ -72,62 +89,144 @@ const Contact = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-purple-700 to-zeyfira-700 py-20 md:py-28 text-white">
+      {/* Hero Section with Animation */}
+      <motion.section 
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={{ duration: 0.6 }}
+        className="relative overflow-hidden bg-gradient-to-r from-purple-700 to-zeyfira-700 py-20 md:py-28 text-white"
+      >
         <div className="absolute inset-0 z-0 opacity-30">
-          <div className="absolute h-96 w-96 rounded-full bg-purple-500 blur-3xl -top-12 -right-12"></div>
-          <div className="absolute h-96 w-96 rounded-full bg-zeyfira-500 blur-3xl -bottom-12 -left-12"></div>
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, 0]
+            }}
+            transition={{ 
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute h-96 w-96 rounded-full bg-purple-500 blur-3xl -top-12 -right-12"
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.1, 1],
+              rotate: [0, -5, 0]
+            }}
+            transition={{ 
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5
+            }}
+            className="absolute h-96 w-96 rounded-full bg-zeyfira-500 blur-3xl -bottom-12 -left-12"
+          />
         </div>
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mx-auto max-w-3xl text-center"
+          >
             <h1 className="mb-6 text-4xl font-bold md:text-6xl">
               Get In Touch
             </h1>
             <p className="mb-8 text-lg md:text-xl text-white/80">
               We'd love to hear from you. Contact us for any inquiries or to discuss your project.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Contact Information Section */}
-      <section className="py-12">
+      {/* Contact Information Section with Staggered Animation */}
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-12"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl border shadow-sm hover:shadow-md transition-shadow text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-100 text-purple-600 mb-4">
+            <motion.div 
+              variants={fadeInUp}
+              whileHover={{ scale: 1.02 }}
+              className="bg-white p-6 rounded-xl border shadow-sm hover:shadow-md transition-shadow text-center"
+            >
+              <motion.div 
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-100 text-purple-600 mb-4"
+              >
                 <Phone className="h-6 w-6" />
-              </div>
+              </motion.div>
               <h3 className="text-lg font-bold mb-2">Call Us</h3>
               <p className="text-gray-600 mb-4">We're available Monday to Friday, 9AM-6PM.</p>
-              <a href="tel:+15551234567" className="text-purple-600 font-medium hover:underline">+1 (555) 123-4567</a>
-            </div>
-            <div className="bg-white p-6 rounded-xl border shadow-sm hover:shadow-md transition-shadow text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-zeyfira-100 text-zeyfira-600 mb-4">
+              <a href="tel:+917810085629" className="text-purple-600 font-medium hover:underline">+91 7810085629</a>
+            </motion.div>
+
+            <motion.div 
+              variants={fadeInUp}
+              whileHover={{ scale: 1.02 }}
+              className="bg-white p-6 rounded-xl border shadow-sm hover:shadow-md transition-shadow text-center"
+            >
+              <motion.div 
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-zeyfira-100 text-zeyfira-600 mb-4"
+              >
                 <Mail className="h-6 w-6" />
-              </div>
+              </motion.div>
               <h3 className="text-lg font-bold mb-2">Email Us</h3>
               <p className="text-gray-600 mb-4">We'll respond to your email within 24 hours.</p>
               <a href="mailto:zeyfira03@gmail.com" className="text-zeyfira-600 font-medium hover:underline">zeyfira03@gmail.com</a>
-            </div>
-            <div className="bg-white p-6 rounded-xl border shadow-sm hover:shadow-md transition-shadow text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 mb-4">
+            </motion.div>
+
+            <motion.div 
+              variants={fadeInUp}
+              whileHover={{ scale: 1.02 }}
+              className="bg-white p-6 rounded-xl border shadow-sm hover:shadow-md transition-shadow text-center"
+            >
+              <motion.div 
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 mb-4"
+              >
                 <MapPin className="h-6 w-6" />
-              </div>
+              </motion.div>
               <h3 className="text-lg font-bold mb-2">Visit Us</h3>
-              <p className="text-gray-600 mb-4">123 Innovation Street, Tech City, TC 10011</p>
+              <p className="text-gray-600 mb-4">Coimbatore, Tamil Nadu, India</p>
               <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-pink-600 font-medium hover:underline">Get Directions</a>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Contact Form Section */}
-      <section className="py-12 pb-20 bg-gray-50">
+      {/* Contact Form Section with Animation */}
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-12 pb-20 bg-gray-50"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+          <motion.div 
+            whileHover={{ scale: 1.01 }}
+            transition={{ duration: 0.3 }}
+            className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden"
+          >
             <div className="grid md:grid-cols-5">
-              <div className="md:col-span-2 bg-gradient-to-br from-purple-600 to-zeyfira-600 p-8 text-white">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="md:col-span-2 bg-gradient-to-br from-purple-600 to-zeyfira-600 p-8 text-white"
+              >
                 <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
                 <div className="space-y-6">
                   <div className="flex items-start">
@@ -178,12 +277,21 @@ const Contact = () => {
                     </a>
                   </div>
                 </div>
-              </div>
-              <div className="md:col-span-3 p-8">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="md:col-span-3 p-8"
+              >
                 <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div>
+                    <motion.div
+                      whileHover={{ scale: 1.01 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                       <Input 
                         id="name" 
@@ -193,8 +301,11 @@ const Contact = () => {
                         required 
                         placeholder="John Doe" 
                       />
-                    </div>
-                    <div>
+                    </motion.div>
+                    <motion.div
+                      whileHover={{ scale: 1.01 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                       <Input 
                         id="email" 
@@ -205,9 +316,12 @@ const Contact = () => {
                         required 
                         placeholder="john@example.com" 
                       />
-                    </div>
+                    </motion.div>
                   </div>
-                  <div>
+                  <motion.div
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
                     <Input 
                       id="subject" 
@@ -217,8 +331,11 @@ const Contact = () => {
                       required 
                       placeholder="How can we help you?" 
                     />
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                     <Textarea 
                       id="message" 
@@ -229,8 +346,11 @@ const Contact = () => {
                       rows={5} 
                       placeholder="Tell us about your project or inquiry..." 
                     />
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
                     <Button 
                       type="submit" 
                       className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-zeyfira-600 text-white"
@@ -238,18 +358,24 @@ const Contact = () => {
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
-                  </div>
+                  </motion.div>
                 </form>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Map Section */}
-      <section className="h-96">
+      {/* Map Section with Animation */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="h-96"
+      >
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30593451365!2d-74.25986652292891!3d40.69714940561046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1619709212111!5m2!1sen!2s" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125323.47388657242!2d76.89719770892212!3d11.016844535532434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f971cb5%3A0x2fc1c81e183ed282!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1709737447372!5m2!1sen!2sin" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 
@@ -257,7 +383,7 @@ const Contact = () => {
           loading="lazy"
           title="Zeyfira office location"
         ></iframe>
-      </section>
+      </motion.section>
     </Layout>
   );
 };

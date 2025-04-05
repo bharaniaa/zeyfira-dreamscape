@@ -1,10 +1,10 @@
-
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import SectionHeader from '@/components/ui/SectionHeader';
 import PortfolioCard from '@/components/ui/PortfolioCard';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Portfolio = () => {
   const portfolioItems = [
@@ -96,11 +96,11 @@ const Portfolio = () => {
           />
           <div className="grid md:grid-cols-2 gap-12">
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
-              <div className="h-64 overflow-hidden">
+              <div className="h-[400px] overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1613963931023-5dc59339b571?auto=format&fit=crop&q=80&w=1000" 
                   alt="FinTech Case Study" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
@@ -129,25 +129,6 @@ const Portfolio = () => {
                 <Button variant="outline">Read Case Study</Button>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Logos Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Trusted by Leading Companies"
-            subtitle="We're proud to have worked with these organizations to transform their digital presence."
-          />
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {/* These would be replaced with actual client logos */}
-            <div className="h-16 w-32 bg-gray-200 rounded flex items-center justify-center">Logo 1</div>
-            <div className="h-16 w-32 bg-gray-200 rounded flex items-center justify-center">Logo 2</div>
-            <div className="h-16 w-32 bg-gray-200 rounded flex items-center justify-center">Logo 3</div>
-            <div className="h-16 w-32 bg-gray-200 rounded flex items-center justify-center">Logo 4</div>
-            <div className="h-16 w-32 bg-gray-200 rounded flex items-center justify-center">Logo 5</div>
-            <div className="h-16 w-32 bg-gray-200 rounded flex items-center justify-center">Logo 6</div>
           </div>
         </div>
       </section>
