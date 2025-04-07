@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Toaster } from "@/components/ui/toaster";
-import Chatbot from '../ui/Chatbot';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
@@ -65,7 +64,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
       <Footer />
       <Toaster />
-      <Chatbot />
     </div>
   );
 };

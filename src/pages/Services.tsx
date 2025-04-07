@@ -470,6 +470,24 @@ const Services = () => {
                   title: "Design & Prototyping",
                   description: "Our design team creates wireframes and interactive prototypes that visualize the user experience and interface before development begins.",
                   color: "bg-zeyfira-600"
+                },
+                {
+                  number: "3",
+                  title: "Development & Testing",
+                  description: "Our developers bring the design to life with clean, efficient code while ensuring quality through rigorous testing procedures.",
+                  color: "bg-purple-600"
+                },
+                {
+                  number: "4",
+                  title: "Deployment & Launch",
+                  description: "We carefully deploy your project and ensure everything runs smoothly in the production environment.",
+                  color: "bg-zeyfira-600"
+                },
+                {
+                  number: "5",
+                  title: "Maintenance & Support",
+                  description: "We provide ongoing maintenance, updates, and support to keep your solution running optimally.",
+                  color: "bg-purple-600"
                 }
               ].map((step, index) => (
                 <motion.div

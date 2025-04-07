@@ -349,9 +349,9 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
             {[
-              { number: "50+", text: "Happy Clients", color: "text-purple-600" },
-              { number: "15+", text: "Team Members", color: "text-zeyfira-600" },
-              { number: "5+", text: "Years Experience", color: "text-purple-600" }
+              { number: "20+", text: "Projects Completed", color: "text-purple-600" },
+              { number: "10+", text: "Team Members", color: "text-zeyfira-600" },
+              { number: "1", text: "Year Experience", color: "text-purple-600" }
             ].map((stat, index) => (
               <motion.div
                 key={index}

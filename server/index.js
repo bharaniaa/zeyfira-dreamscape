@@ -12,14 +12,28 @@ app.use(express.json());
 
 // Create transporter
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
-  secure: true,
   tls: {
     rejectUnauthorized: false
+  },
+  // Add timeout settings
+  connectionTimeout: 10000, // 10 seconds
+  greetingTimeout: 10000,
+  socketTimeout: 10000
+});
+
+// Verify connection configuration
+transporter.verify(function(error, success) {
+  if (error) {
+    console.log('Server is not ready to take our messages:', error);
+  } else {
+    console.log('Server is ready to take our messages');
   }
 });
 

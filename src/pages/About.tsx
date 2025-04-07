@@ -83,21 +83,21 @@ const About = () => {
   const teamMembers = [
     {
       name: 'Bharani Dharan M',
-      role: 'Co-founder & Technical Director',
+      role: 'Founder & Technical Director',
       bio: 'Expert in AI/ML architecture and technical strategy, leading our innovative solutions development.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      image: '/bharani-outdoor.png',
     },
     {
       name: 'Ananthakumar L',
-      role: 'Co-founder & Innovation Lead',
+      role: 'Founder & Innovation Lead',
       bio: 'Specializes in enterprise solutions and cloud architecture, driving our technical innovation.',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      image: '/ananth.png',
     },
     {
       name: 'Pavithra P',
-      role: 'Co-founder & Operations Director',
+      role: 'Founder & Operations Director',
       bio: 'Leads project management and client success strategies, ensuring seamless delivery of solutions.',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      image: '/pavithra-new.png',
     },
   ];
 
