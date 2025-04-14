@@ -85,7 +85,7 @@ const About = () => {
       name: 'Bharani Dharan M',
       role: 'Founder & Technical Director',
       bio: 'Expert in AI/ML architecture and technical strategy, leading our innovative solutions development.',
-      image: '/bharani-outdoor.png',
+      image: '/bharani.png',
     },
     {
       name: 'Ananthakumar L',
@@ -97,7 +97,7 @@ const About = () => {
       name: 'Pavithra P',
       role: 'Founder & Operations Director',
       bio: 'Leads project management and client success strategies, ensuring seamless delivery of solutions.',
-      image: '/pavithra-new.png',
+      image: '/paviii.png',
     },
   ];
 
@@ -304,7 +304,7 @@ const About = () => {
               subtitle="Our talented professionals bring diverse skills and expertise to every project."
             />
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
@@ -313,36 +313,39 @@ const About = () => {
                   y: -5,
                   transition: { type: "spring", stiffness: 400, damping: 17 }
                 }}
-                className="group"
+                className={`group flex flex-col items-center text-center ${
+                  index === 1 ? 'md:col-start-2' : index === 2 ? 'md:col-start-3' : ''
+                }`}
               >
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   className="relative mb-4 overflow-hidden rounded-xl"
                 >
-                  <motion.img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-72 object-cover"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  />
+                  <div className="relative h-64 w-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-center"
+                      style={{ objectPosition: 'center 20%' }}
+                    />
+                  </div>
                 </motion.div>
                 <motion.h3 
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className="text-xl font-bold mb-1"
+                  className="text-xl font-bold mb-1 text-center"
                 >
                   {member.name}
                 </motion.h3>
                 <motion.p 
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className="text-purple-600 font-medium mb-2"
+                  className="text-purple-600 font-medium mb-2 text-center"
                 >
                   {member.role}
                 </motion.p>
-                <p className="text-gray-600">{member.bio}</p>
+                <p className="text-gray-600 text-center">{member.bio}</p>
               </motion.div>
             ))}
           </div>
