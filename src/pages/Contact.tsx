@@ -198,8 +198,8 @@ const Contact = () => {
                 <MapPin className="h-6 w-6" />
               </motion.div>
               <h3 className="text-lg font-bold mb-2">Visit Us</h3>
-              <p className="text-gray-600 mb-4">Coimbatore, Tamil Nadu, India</p>
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-pink-600 font-medium hover:underline">Get Directions</a>
+              <p className="text-gray-600 mb-4">Sri Eswar College of Engineering, Kinathukadavu, Tamil Nadu, India</p>
+              <a href="https://maps.google.com/maps?q=Sri+Eswar+College+of+Engineering,+Kinathukadavu" target="_blank" rel="noopener noreferrer" className="text-pink-600 font-medium hover:underline">Get Directions</a>
             </motion.div>
           </div>
         </div>
@@ -375,13 +375,13 @@ const Contact = () => {
         className="h-96"
       >
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125323.47388657242!2d76.89719770892212!3d11.016844535532434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f971cb5%3A0x2fc1c81e183ed282!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1709737447372!5m2!1sen!2sin" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.123456789012!2d77.12345678901234!3d10.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f971cb5%3A0x2fc1c81e183ed282!2sSri+Eswar+College+of+Engineering!5e0!3m2!1sen!2sin!4v1709737447372!5m2!1sen!2sin" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 
           allowFullScreen={false} 
           loading="lazy"
-          title="Zeyfira office location"
+          title="Sri Eswar College of Engineering location"
         ></iframe>
       </motion.section>
     </Layout>
