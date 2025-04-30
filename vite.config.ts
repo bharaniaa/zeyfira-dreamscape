@@ -25,11 +25,18 @@ export default defineConfig(({ mode }) => ({
   build: {
     sourcemap: true,
     outDir: 'dist',
+    // Ensure all assets are inlined or bundled without excessive chunking
+    assetsInlineLimit: 4096, // 4kb
+    cssCodeSplit: false,
     rollupOptions: {
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
         },
+        // Prevent addition of random hash to filenames
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name].[ext]'
       },
     },
   },

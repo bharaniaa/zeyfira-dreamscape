@@ -23,12 +23,71 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Inline script to catch early errors -->
+    <script type="text/javascript">
+      window.addEventListener('error', function(e) {
+        console.error('Global error caught:', e.error || e.message);
+        
+        // Only show error UI if we don't have content yet
+        if (!document.body.textContent.trim()) {
+          document.body.innerHTML = `
+            <div style="font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto;">
+              <h2 style="color: #e53e3e;">Application Error</h2>
+              <p>There was an error loading the application:</p>
+              <pre style="background: #f7fafc; border-radius: 4px; padding: 15px; overflow: auto; margin-top: 10px;">${(e.error?.stack || e.message || 'Unknown error').toString()}</pre>
+              <div style="margin-top: 20px; padding: 15px; background: #f0fff4; border-radius: 4px;">
+                <p><strong>Troubleshooting:</strong></p>
+                <ul>
+                  <li>Check your browser console for detailed errors</li>
+                  <li>Try clearing your browser cache</li>
+                  <li>Ensure all scripts are properly loaded</li>
+                </ul>
+              </div>
+            </div>
+          `;
+        }
+      }, true);
+
+      // Log load status
+      console.log('HTML document loaded, waiting for scripts...');
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
+        <h2>JavaScript Required</h2>
+        <p>This application requires JavaScript to be enabled in your browser.</p>
+      </div>
+    </noscript>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Fallback content if app doesn't load within 5 seconds -->
+    <script type="text/javascript">
+      window.appStartTime = Date.now();
+      setTimeout(function() {
+        const root = document.getElementById('root');
+        if (root && (!root.hasChildNodes() || root.children.length === 0)) {
+          console.error('Application failed to render within 5 seconds');
+          root.innerHTML = `
+            <div style="font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto;">
+              <h2>Loading Timeout</h2>
+              <p>The application is taking too long to load. This could be due to:</p>
+              <ul>
+                <li>Network issues loading resources</li>
+                <li>JavaScript errors preventing the app from mounting</li>
+                <li>Missing or incorrectly configured build files</li>
+              </ul>
+              <p>Please check the browser console for errors and try refreshing the page.</p>
+              <button onclick="window.location.reload()" style="padding: 8px 16px; background: #4299e1; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">Refresh Page</button>
+            </div>
+          `;
+        }
+      }, 5000);
+    </script>
   </body>
 </html>
