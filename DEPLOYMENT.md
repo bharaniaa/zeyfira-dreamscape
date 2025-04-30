@@ -31,13 +31,25 @@ npm run preview
 1. Create a new Web Service on Render
 2. Connect your GitHub repository
 3. Configure the following settings:
-   - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npm start`
-   - **Publish Directory**: `dist` (This is set automatically by the start command)
+   - **Build Command**: `npm run render-build` or `chmod +x ./build.sh && ./build.sh`
+   - **Start Command**: `npm run render-start` or `chmod +x ./start.sh && ./start.sh`
    - **Environment**: Node
    - **Environment Variables**:
      - `NODE_ENV`: production
      - `PORT`: 10000 (or let Render assign one)
+
+### Troubleshooting Render Deployment
+
+If you see the error `ENOENT: no such file or directory, stat '/opt/render/project/src/dist/index.html'`, it typically means:
+
+1. The build process failed to create the `dist` directory
+2. The build completed but files weren't placed in the expected location
+
+Our improved deployment scripts include:
+
+- `build.sh`: Script that handles the build process with proper error checking
+- `start.sh`: Script that verifies the build artifacts exist before starting the server
+- Enhanced error logging in the server.js file
 
 ### Automatic Deployment with render.yaml
 
