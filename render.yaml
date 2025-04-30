@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: zeyfira-dreamscape
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable 
